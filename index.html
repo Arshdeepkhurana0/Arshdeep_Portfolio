@@ -32,7 +32,6 @@
     cursor: none;
   }
 
-  /* Custom cursor */
   .cursor {
     position: fixed;
     width: 10px; height: 10px;
@@ -55,7 +54,6 @@
     opacity: 0.5;
   }
 
-  /* Grid background */
   body::before {
     content: '';
     position: fixed;
@@ -68,7 +66,6 @@
     z-index: 0;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -107,7 +104,6 @@
 
   .nav-links a:hover { color: var(--accent); }
 
-  /* HERO */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -137,9 +133,7 @@
     pointer-events: none;
   }
 
-  .hero-content {
-    max-width: 800px;
-  }
+  .hero-content { max-width: 800px; }
 
   .hero-tag {
     display: inline-block;
@@ -239,7 +233,6 @@
     color: var(--accent);
   }
 
-  /* SECTION */
   section {
     position: relative;
     z-index: 1;
@@ -262,7 +255,6 @@
     line-height: 1.1;
   }
 
-  /* ABOUT / STATS */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -318,7 +310,6 @@
     color: var(--muted);
   }
 
-  /* SKILLS */
   .skills-section { background: var(--surface); }
 
   .skills-grid {
@@ -374,7 +365,6 @@
     border-color: rgba(0,212,255,0.4);
   }
 
-  /* PROJECTS */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -446,7 +436,6 @@
     border-radius: 2px;
   }
 
-  /* EXPERIENCE */
   .exp-section { background: var(--surface); }
 
   .timeline {
@@ -514,9 +503,7 @@
     list-style: none;
   }
 
-  .timeline-points li {
-    margin-bottom: 0.3rem;
-  }
+  .timeline-points li { margin-bottom: 0.3rem; }
 
   .timeline-points li::before {
     content: '→ ';
@@ -524,7 +511,6 @@
     font-family: var(--mono);
   }
 
-  /* CERTIFICATIONS */
   .certs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -545,6 +531,10 @@
   .cert-card:hover {
     border-color: rgba(124,58,237,0.4);
     transform: translateY(-3px);
+  }
+
+  .cert-card.in-progress {
+    border-color: rgba(124,58,237,0.4);
   }
 
   .cert-icon {
@@ -570,7 +560,6 @@
     color: var(--accent2);
   }
 
-  /* EDUCATION */
   .edu-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -604,7 +593,6 @@
     color: var(--muted);
   }
 
-  /* CONTACT */
   .contact-section {
     background: var(--surface);
     text-align: center;
@@ -641,10 +629,7 @@
     letter-spacing: 0.05em;
   }
 
-  .contact-links {
-    display: flex;
-    gap: 1rem;
-  }
+  .contact-links { display: flex; gap: 1rem; }
 
   .contact-link {
     display: inline-flex;
@@ -667,7 +652,6 @@
     border-color: rgba(0,212,255,0.4);
   }
 
-  /* FOOTER */
   footer {
     position: relative;
     z-index: 1;
@@ -680,7 +664,6 @@
     letter-spacing: 0.1em;
   }
 
-  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -697,7 +680,6 @@
     transform: none;
   }
 
-  /* Scroll progress */
   .progress-bar {
     position: fixed;
     top: 0; left: 0;
@@ -707,7 +689,6 @@
     transition: width 0.1s;
   }
 
-  /* Active nav */
   .nav-links a.active { color: var(--accent); }
 
   @media (max-width: 768px) {
@@ -728,6 +709,14 @@
 
 <nav>
   <div class="nav-logo">ARSHDEEP KHURANA</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
@@ -888,7 +877,7 @@
   <div class="projects-grid">
     <div class="project-card reveal">
       <div class="project-num">PROJECT / 01</div>
-      <div class="project-title">Microsoft 365 Admin Center &mdash; User & Tenant Management</div>
+      <div class="project-title">Microsoft 365 Admin Center — User & Tenant Management</div>
       <div class="project-desc">
         Set up and administered a Microsoft 365 tenant environment through the M365 Admin Center.
         Managed user accounts including creation, licensing assignment, password resets, and role-based
@@ -1019,6 +1008,17 @@
   <div class="section-label">05 / Certifications</div>
   <h2 class="section-title">Credentials</h2>
   <div class="certs-grid">
+
+    <!-- CompTIA A+ FIRST -->
+    <div class="cert-card in-progress reveal">
+      <div class="cert-icon">⏳</div>
+      <div>
+        <div class="cert-name">CompTIA A+</div>
+        <div class="cert-issuer">CompTIA</div>
+        <div class="cert-date" style="color: var(--accent2);">Currently Pursuing</div>
+      </div>
+    </div>
+
     <div class="cert-card reveal">
       <div class="cert-icon">🏆</div>
       <div>
@@ -1095,36 +1095,28 @@
 </footer>
 
 <script>
-  // Custom cursor
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
-  let mouseX = 0, mouseY = 0;
 
   document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = (mouseX - 6) + 'px';
-    cursor.style.top = (mouseY - 6) + 'px';
-    cursorRing.style.transform = `translate(${mouseX - 18}px, ${mouseY - 18}px)`;
+    cursor.style.left = (e.clientX - 6) + 'px';
+    cursor.style.top = (e.clientY - 6) + 'px';
+    cursorRing.style.transform = `translate(${e.clientX - 18}px, ${e.clientY - 18}px)`;
   });
 
-  let isHovering = false;
   document.querySelectorAll('a, button, .project-card, .skill-group').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      isHovering = true;
       cursorRing.style.width = '44px';
       cursorRing.style.height = '44px';
       cursorRing.style.opacity = '0.8';
     });
     el.addEventListener('mouseleave', () => {
-      isHovering = false;
       cursorRing.style.width = '36px';
       cursorRing.style.height = '36px';
       cursorRing.style.opacity = '0.5';
     });
   });
 
-  // Scroll progress
   const progressBar = document.getElementById('progressBar');
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
@@ -1132,7 +1124,6 @@
     progressBar.style.width = (scrolled / total * 100) + '%';
   });
 
-  // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1144,7 +1135,6 @@
 
   reveals.forEach(el => observer.observe(el));
 
-  // Active nav
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
